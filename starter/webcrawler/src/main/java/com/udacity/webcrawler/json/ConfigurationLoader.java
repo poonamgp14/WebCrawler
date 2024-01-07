@@ -5,6 +5,8 @@ import java.io.Reader;
 import java.nio.file.Path;
 import java.util.Objects;
 import java.nio.file.Files;
+
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * A static utility class that loads a JSON configuration file.
@@ -45,6 +47,7 @@ public final class ConfigurationLoader {
     // TODO: Fill in this method
 //    System.out.println(reader.toString());
     ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.disable(JsonParser.Feature.AUTO_CLOSE_SOURCE);
     return objectMapper.readValue(reader,CrawlerConfiguration.class);
   }
 }
