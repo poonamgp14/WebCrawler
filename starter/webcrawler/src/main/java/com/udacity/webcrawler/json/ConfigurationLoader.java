@@ -33,8 +33,8 @@ public final class ConfigurationLoader {
       return read(reader);
     }catch (Exception ex){
       System.out.println(ex);
+      return null;
     }
-    return new CrawlerConfiguration.Builder().build();
   }
 
   /**
@@ -44,8 +44,7 @@ public final class ConfigurationLoader {
    * @return a crawler configuration
    */
   public static CrawlerConfiguration read(Reader reader) throws IOException {
-    // TODO: Fill in this method
-//    System.out.println(reader.toString());
+
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.disable(JsonParser.Feature.AUTO_CLOSE_SOURCE);
     return objectMapper.readValue(reader,CrawlerConfiguration.class);
