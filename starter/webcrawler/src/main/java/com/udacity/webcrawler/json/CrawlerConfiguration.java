@@ -42,8 +42,6 @@ public final class CrawlerConfiguration {
       int popularWordCount,
       String profileOutputPath,
       String resultPath) {
-    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-//    System.out.println(star);
     this.startPages = startPages;
     this.ignoredUrls = ignoredUrls;
     this.ignoredWords = ignoredWords;
@@ -333,7 +331,6 @@ public final class CrawlerConfiguration {
       if (popularWordCount < 0) {
         throw new IllegalArgumentException("popularWordCount cannot be negative");
       }
-      System.out.println(ignoredUrls.stream().map(Pattern::compile).collect(Collectors.toUnmodifiableList()));
       return new CrawlerConfiguration(
           startPages.stream().collect(Collectors.toUnmodifiableList()),
           ignoredUrls.stream().map(Pattern::compile).collect(Collectors.toUnmodifiableList()),

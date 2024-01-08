@@ -67,6 +67,14 @@ public final class CrawlResult {
       return this;
     }
 
+    @Override
+    public String toString() {
+      return "Builder{" +
+              "wordFrequencies=" + wordFrequencies +
+              ", pageCount=" + pageCount +
+              '}';
+    }
+
     /**
      * Sets the total number of URLs visited. See {@link #getUrlsVisited()}.
      */
